@@ -1,0 +1,38 @@
+name: advanced_ui
+description: A new Flutter project.
+publish_to: 'none'
+version: 0.1.0
+
+environment:
+  sdk: '>=3.1.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_staggered_grid_view: ^0.7.0
+  gradient_borders: ^1.0.0
+  open_ui: 
+    path: open_ui/
+  scroll_shadow_container: ^2.1.1+2
+
+dev_dependencies:
+  build_runner:
+  flutter_gen_runner:
+  flutter_lints: ^2.0.0
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
+  assets:     
+         - assets/
+         - assets/images/
+  fonts:
+    - family: Gilroy
+      fonts:
+        - asset: assets/fonts/Gilroy.otf
+        - asset: assets/fonts/GilroyRegular.otf
+
+flutter_gen:
+  output: lib/assets/
+  line_length: 120
