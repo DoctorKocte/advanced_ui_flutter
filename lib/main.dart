@@ -164,11 +164,19 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget>
           //, Spacer()])
            )),
           SizedBox(width: 6),
-          Flexible(child: SectionView(
+        
+          Flexible(child:   Column(children: [ SectionView(
             sectionTitle: 'Цветы',
             sectionWidgetInsets: EdgeInsets.fromLTRB(20, 20, 20, 0),
             sectionWidget: CustomGridView(cards: cards.where((element) => element.saleType == SaleType.flower).toList())
-          ))
+          ),
+          //Flexible(child: 
+          SectionView(
+            sectionTitle: 'Торты',
+            sectionWidgetInsets: EdgeInsets.fromLTRB(20, 30, 20, 0),
+            sectionWidget: CustomGridView(cards: cards.where((element) => element.saleType == SaleType.cake).toList())
+          )
+          ]))
           ]),
           SizedBox(height: 60)
         ])
