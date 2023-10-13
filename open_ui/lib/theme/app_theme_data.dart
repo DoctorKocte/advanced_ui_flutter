@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:open_ui/theme/border_radius/app_border_radius.dart';
 import 'package:open_ui/theme/colors/app_color_scheme.dart';
+import 'package:open_ui/theme/shadows/app_shadows.dart';
 import 'package:open_ui/theme/text/app_text_colors.dart';
 import 'package:open_ui/theme/grid/grid_spacer.dart';
 import 'package:open_ui/theme/material_theme.dart';
@@ -11,7 +12,8 @@ class AppThemeData {
     required this.materialTheme,
     required this.spacer,
     required this.radius,
-    required this.textStyles
+    required this.textStyles,
+    required this.shadows
   });
 
   factory AppThemeData.light() => AppThemeData(
@@ -19,7 +21,8 @@ class AppThemeData {
     materialTheme: MaterialTheme.lightTheme,
     spacer: GridSpacer.regular(),
     radius: AppBorderRadius.regular(),
-    textStyles: AppTextColors.regular()
+    textStyles: AppTextColors.regular(),
+    shadows: AppShadows.reqular()
   );
 
   final ThemeData materialTheme;
@@ -27,4 +30,5 @@ class AppThemeData {
   final GridSpacer spacer;
   final AppBorderRadius radius;
   final AppTextColors textStyles;
+  final AppShadows shadows;
 }

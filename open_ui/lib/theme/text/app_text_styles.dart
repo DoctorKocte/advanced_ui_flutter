@@ -55,6 +55,7 @@ class AppTextStyles {
     fontWeight: FontWeight.w600
   );
 
+// sale card names
   static const TextStyle lightSubtitle = TextStyle(
     fontFamily: _familyGilroy,
     fontStyle: FontStyle.normal,
@@ -62,10 +63,19 @@ class AppTextStyles {
     fontWeight: FontWeight.w500
   );
 
+// holidays select
   static const TextStyle h6 = TextStyle(
     fontFamily: _familyGilroy,
     fontStyle: FontStyle.normal,
     fontSize: 10,
     fontWeight: FontWeight.w700
+  );
+
+// holidays diselect
+    static const TextStyle lightH6 = TextStyle(
+    fontFamily: _familyGilroy,
+    fontStyle: FontStyle.normal,
+    fontSize: 10,
+    fontWeight: FontWeight.w500
   );
 }

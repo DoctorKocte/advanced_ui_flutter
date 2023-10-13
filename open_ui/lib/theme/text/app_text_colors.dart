@@ -11,7 +11,8 @@ class AppTextColors {
     required this.h5,
     required this.lightH5,
     required this.lightSubtitle,
-    required this.h6
+    required this.h6,
+    required this.lightH6
   });
 
   factory AppTextColors.regular() => const AppTextColors(
@@ -23,7 +24,8 @@ class AppTextColors {
     h5: AppTextStyles.h5,
     lightH5: AppTextStyles.lightH5,
     lightSubtitle: AppTextStyles.lightSubtitle,
-    h6: AppTextStyles.h6
+    h6: AppTextStyles.h6,
+    lightH6: AppTextStyles.lightH6
 );
 
   final TextStyle title;
@@ -35,6 +37,7 @@ class AppTextColors {
   final TextStyle lightH5;
   final TextStyle lightSubtitle;
   final TextStyle h6;
+  final TextStyle lightH6;
 
   AppTextColors withColor(Color? color) => AppTextColors(
     title: AppTextStyles.title.apply(color: color), 
@@ -45,6 +48,7 @@ class AppTextColors {
     h5: AppTextStyles.h5.apply(color: color), 
     lightH5: AppTextStyles.lightH5.apply(color: color), 
     lightSubtitle: AppTextStyles.lightSubtitle.apply(color: color),
-    h6: AppTextStyles.h6.apply(color: color)
+    h6: AppTextStyles.h6.apply(color: color),
+    lightH6: AppTextStyles.lightH6.apply(color: color)
   );
 }

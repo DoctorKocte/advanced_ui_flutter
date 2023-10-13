@@ -1,19 +1,19 @@
-import 'package:advanced_ui/assets/assets.gen.dart';
-import 'package:advanced_ui/calendar_widget.dart';
-import 'package:advanced_ui/category_picker_view.dart';
-import 'package:advanced_ui/custom_grid_view.dart';
-import 'package:advanced_ui/custom_horizontal_scroll.dart';
+import 'package:advanced_ui/main_screen/category_picker_view.dart';
+import 'package:advanced_ui/main_screen/main_screen_view.dart';
+import 'package:advanced_ui/main_screen/search_view.dart';
 import 'package:advanced_ui/models.dart';
-import 'package:advanced_ui/section_view.dart';
-import 'package:advanced_ui/vertical_tab_bar.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:open_ui/open_ui.dart';
-import 'package:scroll_shadow_container/scroll_shadow_container.dart';
 
 void main() {
   runApp(const MainApp());
 }
+
+  enum TabTypes {
+    home, shop, favorites, cart, profile;
+
+    int get intValue => index;
+  }
 
 class MainApp extends StatelessWidget {
   const MainApp({super.key});
@@ -40,35 +40,135 @@ class MyStatefulWidget extends StatefulWidget {
 
 class _MyStatefulWidgetState extends State<MyStatefulWidget>
     with SingleTickerProviderStateMixin {
-  int _selectedIndex = 0;
-  int selectedCard = -1;
-  int selectedCategory = -1;
+    int _selectedIndex = 0;
+    int selectedCard = -1;
+    int selectedCategory = -1;
 
-    List<SaleCard> cards = [
-    SaleCard(name: 'Нежный набор', price: 3799, imageString: 'assets/images/flowers1.png', isFavorite: false, saleType: SaleType.flower),
-    SaleCard(name: 'Осенняя сказка', price: 5799, imageString: 'assets/images/flowers2.png', isFavorite: false, saleType: SaleType.flower),
-    SaleCard(name: 'Нежный набор', price: 3799, imageString: 'assets/images/flowers3.png', isFavorite: false, saleType: SaleType.flower),
-    SaleCard(name: 'Композиция любви', price: 5799, imageString: 'assets/images/flowers4.png', isFavorite: false, saleType: SaleType.flower),
-    SaleCard(name: 'Сладкое счастье', price: 3799, imageString: 'assets/images/cake1.png', isFavorite: false, saleType: SaleType.cake),
-    SaleCard(name: 'Ореховый бисквит', price: 5799, imageString: 'assets/images/cake2.png', isFavorite: false, saleType: SaleType.cake),
-    SaleCard(name: 'Фиерия любви', price: 3799, imageString: 'assets/images/cake3.png', isFavorite: false, saleType: SaleType.cake),
-    SaleCard(name: 'Сладкое счастье', price: 5799, imageString: 'assets/images/cake1.png', isFavorite: false, saleType: SaleType.cake)
+    TabTypes selectedTab = TabTypes.home;
+
+    List<HolidayCategory> holidays = [
+    HolidayCategory(
+        name: 'День\nРождения', 
+        type: HolidayType.birthday,
+        imageString: 'assets/images/holiday5.png'
+    ),
+    HolidayCategory(
+        name: 'День Святого\nВалентина',
+        type: HolidayType.valentineDay,
+        imageString: 'assets/images/holiday1.png'),
+    HolidayCategory(
+        name: 'Международный\nЖенский день',
+        type: HolidayType.womenDay,
+        imageString: 'assets/images/holiday6.png'),
+    HolidayCategory(
+        name: 'Новый год', type: HolidayType.newYear, imageString: 'assets/images/holiday7.png'),
+    HolidayCategory(
+        name: 'День защитника\nотечества',
+        type: HolidayType.menDay,
+        imageString: 'assets/images/holiday5.png')
   ];
 
-  static const List<Widget> _bodyView = <Widget>[
-    Text('Index 0: Home'),
-    Text('Index 1: Business'),
-    Text('Index 2: School'),
-    Text('Index 3: School'),
-    Text('Index 4: School'),
+  List<SaleType> selectedSaleTypes = [];
+
+
+  List<SaleType> allSaleTypes = [SaleType.flower, SaleType.candy, SaleType.cake];
+
+  List<String> tabsTitles = [
+    'Высокий рейтинг',
+    'Быстрая доставка',
+    'Недорогие'
   ];
+
+  List<SaleCard> cards = [
+    SaleCard(
+        name: 'Нежный набор',
+        price: 3799,
+        imageString: 'assets/images/flowers1.png',
+        isFavorite: false,
+        saleType: SaleType.flower),
+    SaleCard(
+        name: 'Осенняя сказка',
+        price: 5799,
+        imageString: 'assets/images/flowers2.png',
+        isFavorite: false,
+        saleType: SaleType.flower),
+    SaleCard(
+        name: 'Нежный набор',
+        price: 3799,
+        imageString: 'assets/images/flowers3.png',
+        isFavorite: false,
+        saleType: SaleType.flower),
+    SaleCard(
+        name: 'Композиция любви',
+        price: 5799,
+        imageString: 'assets/images/flowers4.png',
+        isFavorite: false,
+        saleType: SaleType.flower),
+    SaleCard(
+        name: 'Сладкое счастье',
+        price: 3799,
+        imageString: 'assets/images/cake1.png',
+        isFavorite: false,
+        saleType: SaleType.cake),
+    SaleCard(
+        name: 'Ореховый бисквит',
+        price: 5799,
+        imageString: 'assets/images/cake2.png',
+        isFavorite: false,
+        saleType: SaleType.cake),
+    SaleCard(
+        name: 'Фиерия любви',
+        price: 3799,
+        imageString: 'assets/images/cake3.png',
+        isFavorite: false,
+        saleType: SaleType.cake),
+    SaleCard(
+        name: 'Сладкое счастье',
+        price: 5799,
+        imageString: 'assets/images/cake1.png',
+        isFavorite: false,
+        saleType: SaleType.cake),
+    SaleCard(
+        name: 'Конфетка 1',
+        price: 599,
+        imageString: 'assets/images/flowers2.png',
+        isFavorite: false,
+        saleType: SaleType.candy),
+    SaleCard(
+        name: 'Конфетка 2',
+        price: 399,
+        imageString: 'assets/images/flowers2.png',
+        isFavorite: false,
+        saleType: SaleType.candy),
+    SaleCard(
+        name: 'Конфетка 3',
+        price: 799,
+        imageString: 'assets/images/flowers2.png',
+        isFavorite: false,
+        saleType: SaleType.candy)
+  ];
+
+
+   List<SaleCategory> categories = SaleType.values.map(
+     (e) => SaleCategory(name: e.title, saleType: e, imageString: e.imageString)
+   ).toList();
+
 
   late TabController _tabController;
+
+  ValueNotifier<bool> isSaleTypesUpdated = ValueNotifier(false);
 
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(vsync: this, length: 5);
+    _tabController = TabController(vsync: this, length: TabTypes.values.length);
+  }
+
+  @override
+  void dispose() {
+    isSaleTypesUpdated.dispose();
+     _tabController.dispose();
+    super.dispose();
   }
 
   Widget _tabItem(Widget child, {bool isSelected = false}) {
@@ -87,7 +187,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget>
 
   @override
   Widget build(BuildContext context) {
-    List<Widget> _icons = const [
+    const icons = <Widget>[
       Icon(Icons.home_rounded),
       Icon(Icons.storefront_rounded),
       Icon(Icons.favorite),
@@ -97,136 +197,98 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget>
 
     final appTheme = AppThemeData.light();
     final colorScheme = appTheme.colorScheme;
-    final textStyles = appTheme.textStyles;
+    final borderRadius = appTheme.radius; 
+    final shadows = appTheme.shadows; 
 
     return Scaffold(
-      extendBody: true,
-        body: SafeArea(bottom: false,
-            child:
-          Stack(alignment: Alignment.bottomCenter,
-            children: [
-            Column(children: [
-          Padding(
-              padding: EdgeInsets.symmetric(
-                horizontal: 20,
-                vertical: 10,
-              ),
-              child: Row(children: [
-                Flexible(
-                    child:
-                    Container(
-                  height: 50,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.all(Radius.circular(25)),
-                      gradient: LinearGradient(
-                          colors: colorScheme.gradients.mainPink)),
-                  child: SearchBar(
-                    surfaceTintColor:
-                        MaterialStateProperty.all(Colors.white),
-                    backgroundColor:
-                        MaterialStateProperty.all(Colors.transparent),
-                    shadowColor: MaterialStateProperty.all(Colors.transparent),
-                  ),
-                )),
-                SizedBox(
-                  width: 20,
+        body: SafeArea(
+            bottom: false,
+            child: Stack(alignment: Alignment.bottomCenter, children: [
+              Column(children: [
+                const Padding(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: 20,
+                      vertical: 10,
+                    ),
+                    child: SearchView()),
+                Padding(
+                    padding: const EdgeInsets.only(bottom: 30),
+                    child: CategoryPickerView(
+                      categories: categories, 
+                      onSelectCategories: (saleTypes) {
+                        selectedSaleTypes = saleTypes;
+                        isSaleTypesUpdated.value = true;
+                    })
                 ),
-                IconButton(
-                    onPressed: () {}, icon: Assets.images.search.image()),
-              ])),
-          Padding(
-            padding: EdgeInsets.symmetric(vertical: 10),
-            child:  CategoryPickerView()
-          ),
-
- Expanded(child:
-          ScrollShadowContainer(
-  elevation: MaterialElevation.the2dp,
-  child: 
-         
-          ListView(children: [
-          SectionView(
-              sectionTitle: 'Выберите повод',
-              sectionWidgetInsets: EdgeInsets.only(top: 10),
-              sectionWidget: CustomHorizontalScrollView(height: 100)),
-          SectionView(
-              sectionTitle: 'Выберите день праздника',
-              sectionWidgetInsets: EdgeInsets.fromLTRB(20, 16, 20, 0),
-              sectionWidget: CalendarWidget()),
-          //SizedBox(height: 25),
-          Row(children: [
-           IntrinsicHeight(child:
-            SizedBox(width: 40, child:
-           // Column(children: [
-             // SizedBox(height: 10,),
-          VerticalTabBar()
-          //])
-          //, Spacer()])
-           )),
-          SizedBox(width: 6),
-        
-          Flexible(child:   Column(children: [ SectionView(
-            sectionTitle: 'Цветы',
-            sectionWidgetInsets: EdgeInsets.fromLTRB(20, 20, 20, 0),
-            sectionWidget: CustomGridView(cards: cards.where((element) => element.saleType == SaleType.flower).toList())
-          ),
-          //Flexible(child: 
-          SectionView(
-            sectionTitle: 'Торты',
-            sectionWidgetInsets: EdgeInsets.fromLTRB(20, 30, 20, 0),
-            sectionWidget: CustomGridView(cards: cards.where((element) => element.saleType == SaleType.cake).toList())
-          )
-          ]))
-          ]),
-          SizedBox(height: 60)
-        ])
-        ))
-        ]),
-
-         Container(
-          decoration: BoxDecoration(
-            color: Colors.transparent,
-            boxShadow: [
-              BoxShadow(
-                  color: Colors.black.withOpacity(0.05),
-                  blurRadius: 7),
-            ],
-          ),
-          height: 80,
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(25),
-            child: Container(
-              color: Color(0xFFFEFCFD),
-              child: TabBar(
-                  onTap: (tabIndex) {
-                    setState(() {
-                      _selectedIndex = tabIndex;
-                    });
-                  },
-                  labelColor: Colors.white,
-                  indicator: const UnderlineTabIndicator(
-                    borderSide: BorderSide.none,
-                  ),
-                  tabs: [
-                    for (int i = 0; i < _icons.length; i++)
-                      _tabItem(
-                        ShaderMask(
+                ValueListenableBuilder(
+                valueListenable: isSaleTypesUpdated,
+                builder: (context, value, child) {
+                  isSaleTypesUpdated.value = false; 
+                  switch (TabTypes.values[_selectedIndex]) {
+                    case TabTypes.home:
+                      return MainScreenView(
+                        holidays: holidays,
+                        tabsTitles: tabsTitles, 
+                        cards: cards, 
+                        selectedSaleTypes: selectedSaleTypes
+                      );
+                    case TabTypes.shop:
+                      return const Center(child: Text('hi hi'));
+                    case TabTypes.favorites:
+                      return const Center(child: Text('ha hia'));
+                    case TabTypes.cart:
+                      return const Center(child: Text('ui hu'));
+                    case TabTypes.profile:
+                      return const Center(child: Text('h ;vlk '));
+                  }
+                })
+              ]),
+              Container(
+                decoration: BoxDecoration(
+                  color: Colors.transparent,
+                  boxShadow: [shadows.shadow5],
+                ),
+                height: 80,
+                child: ClipRRect(
+                  borderRadius: borderRadius.radius25,
+                  child:
+                   ColoredBox(
+                    color: colorScheme.background.primary,
+                    child:
+                     TabBar(
+                        onTap: (tabIndex) {
+                          setState(() {                          
+                            _selectedIndex = tabIndex;
+                            _tabController.animateTo(_selectedIndex);
+                          });
+                        },
+                        labelColor: colorScheme.textColor.white,
+                        indicator: const UnderlineTabIndicator(
+                          borderSide: BorderSide.none,
+                        ),
+                        tabs: [
+                          for (int index = 0; index < icons.length; index++)
+                            _tabItem(
+                              ShaderMask(
                                 blendMode: BlendMode.srcIn,
-                                shaderCallback: (Rect bounds) {
+                                shaderCallback: (bounds) {
                                   return LinearGradient(
-                                      begin: Alignment.topLeft,
-                                      end: Alignment.bottomRight,
-                                      colors: i == _selectedIndex ? colorScheme.gradients.mainPink : colorScheme.gradients.mainGrey
-                                    ).createShader(bounds);
+                                          begin: Alignment.topLeft,
+                                          end: Alignment.bottomRight,
+                                          colors: index == _selectedIndex
+                                              ? colorScheme.gradients.mainPink
+                                              : colorScheme.gradients.mainGrey)
+                                      .createShader(bounds);
                                 },
-                                child: _icons[i],
+                                child: icons[index],
                               ),
-                        isSelected: i == _selectedIndex,
-                      ),
-                  ],
-                  controller: _tabController),
-            ),
-          ),
-  )])));
+                              isSelected: index == _selectedIndex,
+                            ),
+                        ],
+                        controller: _tabController),
+                  ),
+                ),
+              )
+            ])));
   }
 }

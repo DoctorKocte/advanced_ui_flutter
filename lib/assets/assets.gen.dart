@@ -12,8 +12,20 @@ import 'package:flutter/widgets.dart';
 class $AssetsImagesGen {
   const $AssetsImagesGen();
 
+  /// File path: assets/images/cake1.png
+  AssetGenImage get cake1 => const AssetGenImage('assets/images/cake1.png');
+
+  /// File path: assets/images/cake2.png
+  AssetGenImage get cake2 => const AssetGenImage('assets/images/cake2.png');
+
+  /// File path: assets/images/cake3.png
+  AssetGenImage get cake3 => const AssetGenImage('assets/images/cake3.png');
+
   /// File path: assets/images/candy.png
   AssetGenImage get candy => const AssetGenImage('assets/images/candy.png');
+
+  /// File path: assets/images/fillHeart.png
+  AssetGenImage get fillHeart => const AssetGenImage('assets/images/fillHeart.png');
 
   /// File path: assets/images/flower.png
   AssetGenImage get flower => const AssetGenImage('assets/images/flower.png');
@@ -30,17 +42,26 @@ class $AssetsImagesGen {
   /// File path: assets/images/flowers4.png
   AssetGenImage get flowers4 => const AssetGenImage('assets/images/flowers4.png');
 
+  /// File path: assets/images/heart.png
+  AssetGenImage get heart => const AssetGenImage('assets/images/heart.png');
+
   /// File path: assets/images/holiday1.png
   AssetGenImage get holiday1 => const AssetGenImage('assets/images/holiday1.png');
-
-  /// File path: assets/images/holiday2.png
-  AssetGenImage get holiday2 => const AssetGenImage('assets/images/holiday2.png');
 
   /// File path: assets/images/holiday3.png
   AssetGenImage get holiday3 => const AssetGenImage('assets/images/holiday3.png');
 
   /// File path: assets/images/holiday4.png
   AssetGenImage get holiday4 => const AssetGenImage('assets/images/holiday4.png');
+
+  /// File path: assets/images/holiday5.png
+  AssetGenImage get holiday5 => const AssetGenImage('assets/images/holiday5.png');
+
+  /// File path: assets/images/holiday6.png
+  AssetGenImage get holiday6 => const AssetGenImage('assets/images/holiday6.png');
+
+  /// File path: assets/images/holiday7.png
+  AssetGenImage get holiday7 => const AssetGenImage('assets/images/holiday7.png');
 
   /// File path: assets/images/search.png
   AssetGenImage get search => const AssetGenImage('assets/images/search.png');
@@ -49,8 +70,27 @@ class $AssetsImagesGen {
   AssetGenImage get settings => const AssetGenImage('assets/images/settings.png');
 
   /// List of all assets
-  List<AssetGenImage> get values =>
-      [candy, flower, flowers1, flowers2, flowers3, flowers4, holiday1, holiday2, holiday3, holiday4, search, settings];
+  List<AssetGenImage> get values => [
+        cake1,
+        cake2,
+        cake3,
+        candy,
+        fillHeart,
+        flower,
+        flowers1,
+        flowers2,
+        flowers3,
+        flowers4,
+        heart,
+        holiday1,
+        holiday3,
+        holiday4,
+        holiday5,
+        holiday6,
+        holiday7,
+        search,
+        settings
+      ];
 }
 
 class Assets {
