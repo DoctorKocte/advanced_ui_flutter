@@ -12,6 +12,7 @@ class AppTextStyles {
     fontWeight: FontWeight.w800
   );
 
+// shop name
   static const TextStyle boldSubtitle = TextStyle(
     fontFamily: _familyGilroy,
     fontStyle: FontStyle.normal,

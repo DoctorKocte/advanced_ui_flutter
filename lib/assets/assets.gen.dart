@@ -24,6 +24,12 @@ class $AssetsImagesGen {
   /// File path: assets/images/candy.png
   AssetGenImage get candy => const AssetGenImage('assets/images/candy.png');
 
+  /// File path: assets/images/cart.png
+  AssetGenImage get cart => const AssetGenImage('assets/images/cart.png');
+
+  /// File path: assets/images/comment.png
+  AssetGenImage get comment => const AssetGenImage('assets/images/comment.png');
+
   /// File path: assets/images/fillHeart.png
   AssetGenImage get fillHeart => const AssetGenImage('assets/images/fillHeart.png');
 
@@ -69,12 +75,29 @@ class $AssetsImagesGen {
   /// File path: assets/images/settings.png
   AssetGenImage get settings => const AssetGenImage('assets/images/settings.png');
 
+  /// File path: assets/images/shop1.png
+  AssetGenImage get shop1 => const AssetGenImage('assets/images/shop1.png');
+
+  /// File path: assets/images/shop2.png
+  AssetGenImage get shop2 => const AssetGenImage('assets/images/shop2.png');
+
+  /// File path: assets/images/shop3.png
+  AssetGenImage get shop3 => const AssetGenImage('assets/images/shop3.png');
+
+  /// File path: assets/images/shop4.png
+  AssetGenImage get shop4 => const AssetGenImage('assets/images/shop4.png');
+
+  /// File path: assets/images/star.png
+  AssetGenImage get star => const AssetGenImage('assets/images/star.png');
+
   /// List of all assets
   List<AssetGenImage> get values => [
         cake1,
         cake2,
         cake3,
         candy,
+        cart,
+        comment,
         fillHeart,
         flower,
         flowers1,
@@ -89,7 +112,12 @@ class $AssetsImagesGen {
         holiday6,
         holiday7,
         search,
-        settings
+        settings,
+        shop1,
+        shop2,
+        shop3,
+        shop4,
+        star
       ];
 }
 

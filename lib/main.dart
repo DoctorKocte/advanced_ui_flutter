@@ -2,6 +2,7 @@ import 'package:advanced_ui/models.dart';
 import 'package:advanced_ui/tab_bar_features/common_widgets/category_picker_view.dart';
 import 'package:advanced_ui/tab_bar_features/common_widgets/search_view.dart';
 import 'package:advanced_ui/tab_bar_features/main_screen/main_screen_view.dart';
+import 'package:advanced_ui/tab_bar_features/shop_screen/shop_screen_view.dart';
 import 'package:flutter/material.dart';
 import 'package:open_ui/open_ui.dart';
 
@@ -233,7 +234,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget>
                         selectedSaleTypes: selectedSaleTypes
                       );
                     case TabTypes.shop:
-                      return const Center(child: Text('hi hi'));
+                      return ShopScreenView(tabsTitles: tabsTitles);
                     case TabTypes.favorites:
                       return const Center(child: Text('ha hia'));
                     case TabTypes.cart:
