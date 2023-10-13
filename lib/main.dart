@@ -1,7 +1,7 @@
-import 'package:advanced_ui/main_screen/category_picker_view.dart';
-import 'package:advanced_ui/main_screen/main_screen_view.dart';
-import 'package:advanced_ui/main_screen/search_view.dart';
 import 'package:advanced_ui/models.dart';
+import 'package:advanced_ui/tab_bar_features/common_widgets/category_picker_view.dart';
+import 'package:advanced_ui/tab_bar_features/common_widgets/search_view.dart';
+import 'package:advanced_ui/tab_bar_features/main_screen/main_screen_view.dart';
 import 'package:flutter/material.dart';
 import 'package:open_ui/open_ui.dart';
 

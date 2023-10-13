@@ -1,9 +1,9 @@
-import 'package:advanced_ui/home_screen/calendar_widget.dart';
-import 'package:advanced_ui/home_screen/custom_grid_view.dart';
-import 'package:advanced_ui/home_screen/custom_horizontal_scroll.dart';
-import 'package:advanced_ui/home_screen/section_view.dart';
-import 'package:advanced_ui/main_screen/vertical_tab_bar.dart';
 import 'package:advanced_ui/models.dart';
+import 'package:advanced_ui/tab_bar_features/common_widgets/vertical_tab_bar.dart';
+import 'package:advanced_ui/tab_bar_features/main_screen/widgets/calendar_widget.dart';
+import 'package:advanced_ui/tab_bar_features/main_screen/widgets/custom_grid_view.dart';
+import 'package:advanced_ui/tab_bar_features/main_screen/widgets/custom_horizontal_scroll.dart';
+import 'package:advanced_ui/tab_bar_features/main_screen/widgets/section_view.dart';
 import 'package:flutter/material.dart';
 import 'package:scroll_shadow_container/scroll_shadow_container.dart';
 
