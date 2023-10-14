@@ -1,4 +1,4 @@
-import 'package:advanced_ui/components/sale_card.dart';
+import 'package:advanced_ui/tab_bar_features/main_screen/widgets/sale_card.dart';
 import 'package:advanced_ui/models.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';

@@ -70,3 +70,19 @@ enum HolidayType {
   newYear,
   menDay;
 }
+
+class ShopModel {
+  ShopModel({
+    required this.name,
+    required this.rate,
+    required this.purchasesCount,
+    required this.commentsCount,
+    required this.imageString
+  });
+  
+  String name;
+  double rate;
+  int purchasesCount;
+  int commentsCount;
+  String imageString;
+}

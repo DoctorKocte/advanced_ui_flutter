@@ -154,6 +154,13 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget>
      (e) => SaleCategory(name: e.title, saleType: e, imageString: e.imageString)
    ).toList();
 
+  List<ShopModel> shopModels = [
+    ShopModel(name: 'Родеком', rate: 4.9, purchasesCount: 6000, commentsCount: 700, imageString: 'assets/images/shop1.png'),
+    ShopModel(name: 'Флория', rate: 4.8, purchasesCount: 5000, commentsCount: 500, imageString: 'assets/images/shop2.png'),
+    ShopModel(name: 'КондитерМаг', rate: 4.6, purchasesCount: 4500, commentsCount: 500, imageString: 'assets/images/shop3.png'),
+    ShopModel(name: 'Плумерия', rate: 4.3, purchasesCount: 2500, commentsCount: 200, imageString: 'assets/images/shop4.png'),
+    ShopModel(name: 'ФлорАрт', rate: 3.8, purchasesCount: 1000, commentsCount: 100, imageString: 'assets/images/shop1.png')
+  ]; 
 
   late TabController _tabController;
 
@@ -234,7 +241,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget>
                         selectedSaleTypes: selectedSaleTypes
                       );
                     case TabTypes.shop:
-                      return ShopScreenView(tabsTitles: tabsTitles);
+                      return ShopScreenView(tabsTitles: tabsTitles, shopModels: shopModels);
                     case TabTypes.favorites:
                       return const Center(child: Text('ha hia'));
                     case TabTypes.cart:

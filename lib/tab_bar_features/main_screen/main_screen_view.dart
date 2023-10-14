@@ -34,7 +34,9 @@ class _MainScreenViewState extends State<MainScreenView>
   Widget build(BuildContext context) {
     return Expanded(
         child: ScrollShadowContainer(
-            child: ListView(children: [
+            child: ListView(
+              physics: const BouncingScrollPhysics(),
+              children: [
       SectionView(
           sectionTitle: 'Выберите повод',
           sectionWidgetInsets: const EdgeInsets.only(top: 10),
@@ -87,7 +89,7 @@ class _MainScreenViewState extends State<MainScreenView>
                       // логика на апдейт карт
                     },
                   )),
-          const SizedBox(height: 30),
+          const SizedBox(height: 70),
         ])),
       ]),
     ])));

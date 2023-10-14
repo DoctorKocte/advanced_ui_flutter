@@ -31,6 +31,7 @@ class _CustomHorizontalScrollViewState extends State<CustomHorizontalScrollView>
     return SizedBox(
             height: widget.height,
             child: ListView.builder(
+                physics: const BouncingScrollPhysics(),
                 scrollDirection: Axis.horizontal,
                 itemCount: widget.holidays.length,
                 itemBuilder: (context, index) {

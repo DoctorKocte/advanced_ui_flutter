@@ -56,6 +56,15 @@ class AppTextStyles {
     fontWeight: FontWeight.w600
   );
 
+  // price
+  static const TextStyle subtitleLightH5 = TextStyle(
+    fontFamily: _familyGilroy,
+    fontStyle: FontStyle.normal,
+    fontSize: 15,
+    fontWeight: FontWeight.w500
+  );
+
+
 // sale card names
   static const TextStyle lightSubtitle = TextStyle(
     fontFamily: _familyGilroy,
