@@ -68,6 +68,8 @@ class _MainScreenViewState extends State<MainScreenView>
                       const Spacer()
                     ]))),
         const SizedBox(width: 6),
+        // если выбрать только одну категорию в пикере сверху, то высота будет больше необходимой
+        // не получилось починить
         Flexible(
             child: Column(children: [
           const SizedBox(height: 25),

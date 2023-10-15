@@ -11,6 +11,7 @@ class CustomHorizontalScrollView extends StatefulWidget {
   final List<HolidayCategory> holidays;
   final Function(HolidayType) onSelectHoliday;
   // иначе слетает выделение
+  // хотя при переключении категории в пикекре сверху все равно слетает, нужно где-то хранить
   int selectedCard = -1;
 
   @override
@@ -50,7 +51,7 @@ class _CustomHorizontalScrollViewState extends State<CustomHorizontalScrollView>
                         left: index == 0 ? 20 : 8,
                         right: widget.holidays[index] == widget.holidays.last ? 20 : 0
                       ),
-                      decoration:  widget.selectedCard == index 
+                      decoration: widget.selectedCard == index 
                       ? BoxDecoration(
                           gradient: LinearGradient(
                               begin: Alignment.topLeft,

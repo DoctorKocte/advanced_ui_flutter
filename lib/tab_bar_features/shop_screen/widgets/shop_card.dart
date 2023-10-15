@@ -31,11 +31,9 @@ class _ShopCardState extends State<ShopCard>
         children: [
           Container(
             clipBehavior: Clip.hardEdge,
-            height: 175,
             decoration: BoxDecoration(borderRadius: borderRadius.radius22BottomRight),
             child: Image.asset(
-            widget.shopModel.imageString,
-            fit: BoxFit.fill,
+            widget.shopModel.imageString
             ),
           ),
           Padding(
